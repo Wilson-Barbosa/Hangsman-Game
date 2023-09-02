@@ -3,38 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Wilson Diego Barbosa">
     <link rel="stylesheet" href="/style/styles.css">
     <script defer src="/src/index.js"></script>
-    <title>Game</title>
+    <title>Hangman Game</title>
 </head>
 <body>
-    <div class="container-for-letters">
-        <div class="letter-styling">A</div>
-        <div class="letter-styling">B</div>
-        <div class="letter-styling">C</div>
-        <div class="letter-styling">D</div>
-        <div class="letter-styling">E</div>
-        <div class="letter-styling">F</div>
-        <div class="letter-styling">G</div>
-        <div class="letter-styling">H</div>
-        <div class="letter-styling">I</div>
-        <div class="letter-styling">J</div>
-        <div class="letter-styling">K</div>
-        <div class="letter-styling">L</div>
-        <div class="letter-styling">M</div>
-        <div class="letter-styling">N</div>
-        <div class="letter-styling">O</div>
-        <div class="letter-styling">P</div>
-        <div class="letter-styling">K</div>
-        <div class="letter-styling">R</div>
-        <div class="letter-styling">S</div>
-        <div class="letter-styling">T</div>
-        <div class="letter-styling">U</div>
-        <div class="letter-styling">V</div>
-        <div class="letter-styling">W</div>
-        <div class="letter-styling">X</div>
-        <div class="letter-styling">Y</div>
-        <div class="letter-styling">Z</div>
+    <h1>Hangman Game</h1>
+    <div class="flex-selector-for-everything">
+        <div class="game-container">
+            <!--WORD-->
+            <div class="word-container">
+                <p>G</p>
+                <p>A</p>
+                <p>R</p>
+                <p>D</p>
+                <p>E</p>
+                <p>N</p>
+            </div>
+
+            <!--HINT-BOX-->
+            <div class="hint-container">
+                <span>Hint:</span><p id="hint">This is just an example</p>
+            </div>
+
+            <!--KEYBOARD-->
+            <div class="container-for-letters">
+                <button class="letter-styling-button">A</button>
+                <button class="letter-styling-button">B</button>
+                <button class="letter-styling-button">C</button>
+                <button class="letter-styling-button">D</button>
+                <button class="letter-styling-button">E</button>
+                <button class="letter-styling-button">F</button>
+                <button class="letter-styling-button">G</button>
+                <button class="letter-styling-button">H</button>
+                <button class="letter-styling-button">I</button>
+                <button class="letter-styling-button">J</button>
+                <button class="letter-styling-button">K</button>
+                <button class="letter-styling-button">L</button>
+                <button class="letter-styling-button">M</button>
+                <button class="letter-styling-button">N</button>
+                <button class="letter-styling-button">O</button>
+                <button class="letter-styling-button">P</button>
+                <button class="letter-styling-button">K</button>
+                <button class="letter-styling-button">R</button>
+                <button class="letter-styling-button">S</button>
+                <button class="letter-styling-button">T</button>
+                <button class="letter-styling-button">U</button>
+                <button class="letter-styling-button">V</button>
+                <button class="letter-styling-button">W</button>
+                <button class="letter-styling-button">X</button>
+                <button class="letter-styling-button">Y</button>
+                <button class="letter-styling-button">Z</button>
+            </div>
+
+            <!--TRY A WORD-->
+            <form>
+                <label>Guess the word:</label>
+                <input type="text" id="input-text">
+                <button type="button" id="button-for-word-guessing">Guess it</button>
+            </form>
+        </div>
+
+        <!--HAGING IMAGES-->
+        <div class="image">
+            <img src="./images/dead.svg">
+        </div>
+    </body>
     </div>
-</body>
 </html>
