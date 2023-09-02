@@ -37,3 +37,6 @@ const word = englishWords[random_number][0];
 const word_Array = [...word];
 const hint = englishWords[random_number][1];
 
+/* THIS IS A SEPARTE CODE I MADE TO ADD THE EVENTS FOR EACH BUTTON */
+/* index will range from 0 to 25 totalizing 26 letters */
+document.getElementsByClassName('letter-styling-button')[index].textContent;
