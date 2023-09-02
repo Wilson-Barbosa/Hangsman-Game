@@ -37,6 +37,25 @@ const word = englishWords[random_number][0];
 const word_Array = [...word];
 const hint = englishWords[random_number][1];
 
-/* THIS IS A SEPARTE CODE I MADE TO ADD THE EVENTS FOR EACH BUTTON */
-/* index will range from 0 to 25 totalizing 26 letters */
-document.getElementsByClassName('letter-styling-button')[index].textContent;
+/*  Function that takes the word the user guessed it and compares it to the random word generated, all to lower case   */
+
+function guessing() {
+    const guess = (document.getElementById('input-text').value).toLowerCase();
+
+    //if the user guess it right he wins
+    if (guess === word.toLowerCase()){
+
+        document.getElementById('image').src = './images/saved.svg';
+        alert('Correct!! You won and the prisioner was saved!');
+
+    //if the user guess it wrong he loses    
+    } else {
+
+        document.getElementById('image').src = './images/dead.svg'
+        alert('You lost and the prisioner died!');
+
+    }
+}
+
+//listening then for the click guessing:
+const button_guessing = document.getElementById('button-for-word-guessing').addEventListener('click', guessing);
