@@ -1,8 +1,8 @@
-//Array that stores the words and hints for later access
-//the way the data is stored it's like: [word],[hint]
+//Array that stores the words and their hints
+//the data is stored like: [ word ], [ hint ]
 const englishWords = [
     ['Giraffe', 'This animal has a long neck.'],
-    ['Pizza ', 'A popular Italian dish'],
+    ['Pizza', 'A popular Italian dish'],
     ['Sunny','The opposite of cloudy or rainy weather.'],
     ['Computer','You are probably using one right now!'],
     ['Dragon','A mythical, fire-breathing creature.'],
@@ -12,46 +12,109 @@ const englishWords = [
     ['Soccer','A popular sport played with a round ball.'],
     ['Telescope','An instrument used to observe distant objects in space'],
     ['Hamburger','A popular fast food item.'],
-    ['Tropical ','A word often associated with warm, exotic locations.'],
+    ['Tropical','A word often associated with warm, exotic locations.'],
     ['Basketball','A sport played with a round ball and hoop.'],
     ['Rainbow','A colorful arc in the sky after rainfall.'],
     ['Elephant','This animal has a long trunk.'],
-    ['Fireplace ','A source of warmth and coziness in a home.']
+    ['Fireplace','A source of warmth and coziness in a home.']
 ]
 
 
 
+
+
+
+
+
+
 //a number is generated and passed to this variable
-//with this I can access a random element and take their values, in this case it's the word and hint
 const random_number = Math.floor(Math.random() * englishWords.length);
 
 
-
-//word and hint are generated and passed to the variables word and hint
-//these variables will be appended latter into their respectives HTML elements
-
-//the variable 'word' is a string and I want it to become an array. I'll pass each element of the array to the paragraphs from the .word-container. I hope i can loop over these without much trouble
+//the variable 'word' is a string and I want it to become an array so that i can append it later into #word-container
 const word = englishWords[random_number][0];
-
-//here I'm using the spread operator, now the string generated above is a happy array!! 
-const word_Array = [...word];
 const hint = englishWords[random_number][1];
 
-/*  Function that takes the word the user guessed it and compares it to the random word generated, all to lower case   */
 
+//here I'm using the spread operator to parse 'word' string to an array
+const word_Array = [...word];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* This is a function that creates a P elemet */
+function adding_letters(letter){
+    //creating a p element, placing text and attributing the proper class for styling;
+    let p_element = document.createElement('p');
+    p_element.className = 'individual-letter';
+    p_element.innerText = `${letter}`;
+
+    //grabbint the div were the letters will go into
+    const word_Container = document.getElementById('word-container');
+
+    //appending each letter
+    word_Container.appendChild(p_element);
+}
+
+//with this I can iterate each letter from the random word to the 
+for (let i = 0; i < word_Array.length; i++){
+    adding_letters(word_Array[i]);
+}
+
+//in this line I can add the correspondent hint to it's proper 
+document.getElementById('hint').innerText = hint;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  This function takes the word the user guessed and compares it to the randomly generated word, both are converted to lowercase.  */
 function guessing() {
     const guess = (document.getElementById('input-text').value).toLowerCase();
 
     //if the user guess it right he wins
     if (guess === word.toLowerCase()){
 
-        document.getElementById('image').src = './images/saved.svg';
+        document.getElementById('image').setAttribute('src', './images/saved.svg');
         alert('Correct!! You won and the prisioner was saved!');
 
     //if the user guess it wrong he loses    
     } else {
 
-        document.getElementById('image').src = './images/dead.svg'
+        document.getElementById('image').setAttribute('src', './images/dead.svg');
         alert('You lost and the prisioner died!');
 
     }
