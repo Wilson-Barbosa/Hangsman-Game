@@ -27,8 +27,36 @@ const englishWords = [
 
 
 
-//a number is generated and passed to this variable
-const random_number = Math.floor(Math.random() * englishWords.length);
+/* Function that effectively starts the game */
+function starting_the_game() {
+
+    //a number is generated and passed to this variable
+    const random_number = Math.floor(Math.random() * englishWords.length);
+
+    //with this I can iterate each letter from the random word to the 
+    for (let i = 0; i < word_Array.length; i++){
+        adding_letters(word_Array[i]);
+    }
+
+
+    //adding the hint 
+    document.getElementById('hint').innerText = hint;
+
+    //adding the first image
+    const image = document.getElementById('image');
+    image.setAttribute('src', 'images/start.svg')
+    
+    return random_number;
+}
+
+
+
+
+/* Event Listener to start the game */
+document.getElementById('new-game').addEventListener('click', starting_the_game);
+
+
+
 
 
 //the variable 'word' is a string and I want it to become an array so that i can append it later into #word-container
@@ -38,18 +66,6 @@ const hint = englishWords[random_number][1];
 
 //here I'm using the spread operator to parse 'word' string to an array
 const word_Array = [...word];
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -73,25 +89,6 @@ function adding_letters(letter){
     word_Container.appendChild(p_element);
 }
 
-//with this I can iterate each letter from the random word to the 
-for (let i = 0; i < word_Array.length; i++){
-    adding_letters(word_Array[i]);
-}
-
-//in this line I can add the correspondent hint to it's proper 
-document.getElementById('hint').innerText = hint;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -104,6 +101,7 @@ document.getElementById('hint').innerText = hint;
 /*  This function takes the word the user guessed and compares it to the randomly generated word, both are converted to lowercase.  */
 function guessing() {
     const guess = (document.getElementById('input-text').value).toLowerCase();
+
 
     //if the user guess it right he wins
     if (guess === word.toLowerCase()){

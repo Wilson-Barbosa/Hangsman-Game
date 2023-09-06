@@ -18,6 +18,22 @@ h1 {
     margin: 2rem;
 }
 
+/*-------------------New Game-------------------*/
+
+.start-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#new-game {
+    padding: 0.9rem;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    box-shadow: 2px 2px 5px black;
+}
+
+
 /*-------------------BIG SELECTOR-------------------*/
 .flex-selector-for-everything {
     display: flex;
